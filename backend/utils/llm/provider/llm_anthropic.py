@@ -42,7 +42,13 @@ class AnthropicClient:
                     ],
                 )
                 if system_prompt is not None:
-                    kwargs["system"] = system_prompt
+                    kwargs["system"] = [
+                        {
+                            "type": "text",
+                            "text": system_prompt,
+                            "cache_control": {"type": "ephemeral"},
+                        }
+                    ]
                 if self.temperature is not None:
                     kwargs["temperature"] = self.temperature
                 elif self.top_p is not None:
@@ -76,7 +82,13 @@ class AnthropicClient:
                         ],
                     )
                     if system_prompt is not None:
-                        kwargs["system"] = system_prompt
+                        kwargs["system"] = [
+                            {
+                                "type": "text",
+                                "text": system_prompt,
+                                "cache_control": {"type": "ephemeral"},
+                            }
+                        ]
                     if self.temperature is not None:
                         kwargs["temperature"] = self.temperature
                     elif self.top_p is not None:
