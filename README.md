@@ -1,6 +1,8 @@
-# STAGELab: An Open-Source Platform for Orchestrating Emergent Treatment Conditions in Human–Agent Online Chatroom Experiments
+# STAGELab
 
-A research platform for running controlled human-facing experiments in AI-agent chatrooms. A single human participant interacts with multiple AI agents whose behaviour is coordinated to realise experimentally controlled treatment conditions.
+*An Open-Source Platform for Orchestrating Emergent Treatment Conditions in Human–Agent Online Chatroom Experiments*
+
+A single human participant interacts with multiple AI agents whose behaviour is coordinated to realise experimentally controlled treatment conditions.
 
 **Status**: Under active development for the [What-If](https://what-if-horizon.eu/) project by https://github.com/Rptkiddle.
 
