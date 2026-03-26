@@ -1,4 +1,4 @@
-# STAGElab
+# STAGELab: An Open-Source Platform for Orchestrating Emergent Treatment Conditions in Human–Agent Online Chatroom Experiments
 
 A research platform for running controlled human-facing experiments in AI-agent chatrooms. A single human participant interacts with multiple AI agents whose behaviour is coordinated to realise experimentally controlled treatment conditions.
 
@@ -79,13 +79,9 @@ All identities (performers and participant) are replaced with shuffled anonymous
 
 The Director, Performer, and Moderator each use independently configured LLM providers and models. The Director should be a capable instruction-following model (it reasons over validity criteria and makes multi-step decisions). The Performer can be a smaller or fine-tuned instruction-following model optimised for convincing online speech in the target language or domain. The Moderator needs only basic extraction capability. This separation allows each role to use the model best suited to its task.
 
-### Validation scripts
+### Rehearsal mode
 
-A script in `backend/agents/STAGE/validation/` supports manual inspection of the pipeline:
-
-- **`validate_pipeline.py`** — steps through N turns of the full Director → Performer → Moderator pipeline, printing every LLM call's system prompt, user prompt, and response.
-
-Run by piping into the app container: `cat backend/agents/STAGE/validation/<script>.py | docker compose exec -T app python`
+The admin wizard includes a **Rehearse** button (see Step 4, below) that runs the full Director → Performer → Moderator pipeline headlessly for each treatment group in parallel, then produces a structured audit report of the resulting chatroom simulation. This allows the researcher to adjust their internal and ecological validity criteria and other settings before generating participant tokens and launching the experiment.
 
 
 ## Installation

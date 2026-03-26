@@ -1,5 +1,5 @@
 cff-version: 1.2.0
-title: "STAGElab: A Platform for Agent-Generated Experiments"
+title: "STAGELab: An Open-Source Platform for Orchestrating Emergent Treatment Conditions in Human–Agent Online Chatroom Experiments"
 message: "If you use this software, please cite it using the metadata from this file."
 type: software
 authors:
