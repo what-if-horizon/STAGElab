@@ -75,7 +75,7 @@ export default function StepTokens({
               min={1}
               max={1000}
               value={perGroup}
-              onChange={(e) => setPerGroup(Math.max(1, parseInt(e.target.value) || 1))}
+              onChange={(e) => { if (e.target.value === "") return; setPerGroup(Math.max(1, parseInt(e.target.value) || 1)) }}
               className="w-28 px-3 py-2 border border-admin-border rounded-lg text-sm bg-admin-surface text-admin-text focus:outline-none focus:border-admin-accent focus:ring-1 focus:ring-admin-accent/30"
             />
           </div>

@@ -54,7 +54,7 @@ export default function StepSession({ config, onChange, touched }: StepSessionPr
               type="number"
               min={1}
               value={config.session_duration_minutes}
-              onChange={(e) => onChange({ session_duration_minutes: Math.max(1, parseInt(e.target.value) || 1) })}
+              onChange={(e) => { if (e.target.value === "") return; onChange({ session_duration_minutes: Math.max(1, parseInt(e.target.value) || 1) }) }}
               className={inputClass}
             />
           </div>
@@ -65,7 +65,7 @@ export default function StepSession({ config, onChange, touched }: StepSessionPr
             <input
               type="number"
               value={config.random_seed}
-              onChange={(e) => onChange({ random_seed: parseInt(e.target.value) || 0 })}
+              onChange={(e) => { if (e.target.value === "") return; onChange({ random_seed: parseInt(e.target.value) || 0 }) }}
               className={inputClass}
             />
           </div>
@@ -83,7 +83,7 @@ export default function StepSession({ config, onChange, touched }: StepSessionPr
             min={0}
             max={20}
             value={config.num_agents}
-            onChange={(e) => handleNumAgentsChange(Math.max(0, parseInt(e.target.value) || 0))}
+            onChange={(e) => { if (e.target.value === "") return; handleNumAgentsChange(Math.max(0, parseInt(e.target.value) || 0)) }}
             className="w-24 px-3 py-2 border border-admin-border rounded-lg text-sm bg-admin-surface text-admin-text focus:outline-none focus:border-admin-accent focus:ring-1 focus:ring-admin-accent/30"
           />
         </div>
@@ -127,7 +127,7 @@ export default function StepSession({ config, onChange, touched }: StepSessionPr
               type="number"
               min={0}
               value={config.messages_per_minute}
-              onChange={(e) => onChange({ messages_per_minute: Math.max(0, parseInt(e.target.value) || 0) })}
+              onChange={(e) => { if (e.target.value === "") return; onChange({ messages_per_minute: Math.max(0, parseInt(e.target.value) || 0) }) }}
               className={inputClass}
             />
             <p className="text-xs text-admin-muted mt-1">
@@ -142,7 +142,7 @@ export default function StepSession({ config, onChange, touched }: StepSessionPr
               type="number"
               min={1}
               value={config.evaluate_interval}
-              onChange={(e) => onChange({ evaluate_interval: Math.max(1, parseInt(e.target.value) || 1) })}
+              onChange={(e) => { if (e.target.value === "") return; onChange({ evaluate_interval: Math.max(1, parseInt(e.target.value) || 1) }) }}
               className={inputClass}
             />
             <p className="text-xs text-admin-faint mt-1">How often the Director re-evaluates validity criteria (in messages). Also sets the chat log length for the Evaluate call.</p>
@@ -155,7 +155,7 @@ export default function StepSession({ config, onChange, touched }: StepSessionPr
               type="number"
               min={1}
               value={config.action_window_size}
-              onChange={(e) => onChange({ action_window_size: Math.max(1, parseInt(e.target.value) || 1) })}
+              onChange={(e) => { if (e.target.value === "") return; onChange({ action_window_size: Math.max(1, parseInt(e.target.value) || 1) }) }}
               className={inputClass}
             />
             <p className="text-xs text-admin-faint mt-1">Recent messages included in the Director Action call. Controls how much conversation context the Director sees when deciding the next action.</p>
@@ -168,7 +168,7 @@ export default function StepSession({ config, onChange, touched }: StepSessionPr
               type="number"
               min={0}
               value={config.performer_memory_size}
-              onChange={(e) => onChange({ performer_memory_size: Math.max(0, parseInt(e.target.value) || 0) })}
+              onChange={(e) => { if (e.target.value === "") return; onChange({ performer_memory_size: Math.max(0, parseInt(e.target.value) || 0) }) }}
               className={inputClass}
             />
             <p className="text-xs text-admin-faint mt-1">Number of the performer's own recent messages included in its prompt. Helps avoid repetition. Set to 0 to disable.</p>

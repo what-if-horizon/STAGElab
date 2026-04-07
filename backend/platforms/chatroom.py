@@ -1,5 +1,6 @@
 import asyncio
 import random
+import time
 from datetime import datetime, timezone
 from typing import Callable, Dict, List, Optional
 
@@ -274,28 +275,40 @@ class SimulationSession:
     TYPING_DELAY_MAX = 6.0   # cap so long messages don't stall too long
 
     async def _guarded_turn(self) -> None:
-        """Execute a single agent turn sequentially.
+        """Execute a single agent turn with concurrent typing delay.
 
-        Publishes typing_start/typing_stop events around the LLM pipeline
-        so the frontend can show a "someone is writing..." indicator.
-        After the LLM returns a message, a length-based typing delay is
-        applied before the message is persisted and broadcast.
+        The STAGE pipeline and a realistic typing delay run concurrently:
+        the message is sent after max(pipeline_time, typing_delay).  If the
+        pipeline completes within the typing window the participant sees only
+        natural typing time; any excess is visible lag.
+
+        The ratio ``pipeline_duration / typing_delay`` is the key health
+        metric — it should stay below 1.0.
         """
         async with self._turn_lock:
             try:
                 await self._publish_typing(started=True)
+
+                # Run the LLM pipeline, then sleep only the remaining typing time.
+                pipeline_start = time.monotonic()
                 result = await self.agent_manager.orchestrator.execute_turn(
                     self.internal_validity_criteria,
                 )
+                pipeline_duration = time.monotonic() - pipeline_start
 
                 if result is None or result.action_type == "wait":
                     return
 
-                # Apply realistic typing delay based on message length.
+                # Compute the typing delay from message length.
+                typing_delay = self.TYPING_DELAY_MIN
                 if result.message and result.message.content:
-                    delay = len(result.message.content) / self.TYPING_CHARS_PER_SECOND
-                    delay = max(self.TYPING_DELAY_MIN, min(delay, self.TYPING_DELAY_MAX))
-                    await asyncio.sleep(delay)
+                    typing_delay = len(result.message.content) / self.TYPING_CHARS_PER_SECOND
+                    typing_delay = max(self.TYPING_DELAY_MIN, min(typing_delay, self.TYPING_DELAY_MAX))
+
+                # Sleep only the remaining time (typing delay minus pipeline time).
+                remaining = typing_delay - pipeline_duration
+                if remaining > 0:
+                    await asyncio.sleep(remaining)
 
                 # Delegate persistence + broadcast to AgentManager.
                 if result.action_type == "like":

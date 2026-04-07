@@ -45,7 +45,7 @@ export default function StepReview({
   const groupCount = Object.keys(experimental.groups).length
 
   return (
-    <div className="space-y-6 pb-16">
+    <div className="space-y-6">
       <div>
         <h2 className="text-lg font-semibold text-admin-text">Review Configuration</h2>
         <p className="text-sm text-admin-muted mt-1">

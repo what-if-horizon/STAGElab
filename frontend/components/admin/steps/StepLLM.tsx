@@ -213,7 +213,7 @@ function LLMRoleConfig({
                 max={2}
                 step={0.1}
                 value={temperature}
-                onChange={(e) => set("temperature", parseFloat(e.target.value) || 0)}
+                onChange={(e) => { if (e.target.value === "") return; set("temperature", parseFloat(e.target.value) || 0) }}
                 className={inputClass}
               />
             </div>
@@ -227,7 +227,7 @@ function LLMRoleConfig({
                 max={1}
                 step={0.05}
                 value={topP}
-                onChange={(e) => set("top_p", parseFloat(e.target.value) || 0)}
+                onChange={(e) => { if (e.target.value === "") return; set("top_p", parseFloat(e.target.value) || 0) }}
                 className={inputClass}
               />
             </div>
@@ -237,7 +237,7 @@ function LLMRoleConfig({
                 type="number"
                 min={1}
                 value={maxTokens}
-                onChange={(e) => set("max_tokens", Math.max(1, parseInt(e.target.value) || 1))}
+                onChange={(e) => { if (e.target.value === "") return; set("max_tokens", Math.max(1, parseInt(e.target.value) || 1)) }}
                 className={inputClass}
               />
             </div>
