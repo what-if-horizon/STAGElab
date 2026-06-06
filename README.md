@@ -4,7 +4,7 @@
 
 A single human participant interacts with multiple AI agents whose behaviour is coordinated to realise experimentally controlled treatment conditions.
 
-**Status**: Under active development for the [What-If](https://what-if-horizon.eu/) project by https://github.com/Rptkiddle.
+**Status**: Under active development for the [What-If](https://what-if-horizon.eu/) project by https://github.com/Rptkiddle and https://github.com/vanatteveldt
 
 ![Chatroom — participant view](assets/chatroom.png)
 
