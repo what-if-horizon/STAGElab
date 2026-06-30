@@ -12,7 +12,7 @@ authors:
     affiliation: "Vrije Universiteit Amsterdam, Dept. of Communication Science"
     orcid: "https://orcid.org/0000-0003-1237-538X"
 license: AGPL-3.0
-repository-code: "https://github.com/Rptkiddle/wp5_pilot_platform"
+repository-code: "https://github.com/what-if-horizon/STAGElab"
 keywords:
   - multi-agent systems
   - online experiments

@@ -13,7 +13,7 @@ A single human participant interacts with multiple AI agents whose behaviour is 
 
 ## STAGE Framework
 
-**STAGE** (**S**imulated **T**heater for **A**gent-**G**enerated **E**xperiments) is a generative multi-agent coordination framework that lets a researcher describe experimental conditions in plain language and produces a live chatroom that realises those conditions around a real human participant.
+**STAGE** (**S**imulated **T**heater for **A**gentic-**G**enerative **E**xperiments) is a generative multi-agent coordination framework that lets a researcher describe experimental conditions in plain language and produces a live chatroom that realises those conditions around a real human participant.
 
 In a participant-facing chatroom experiment, the experimental stimulus is not a fixed input — it is a property of the *conversation itself*, emerging from the complex interactions of multiple AI agents and a human participant. The researcher cannot script this discourse in advance. It must unfold naturally, respond to whatever the human says, and still satisfy the intended experimental manipulation. STAGE governs this emergence.
 
@@ -336,7 +336,7 @@ wp5_pilot_platform/
 
 If you use this platform in your research, please cite it:
 
-> Kiddle, R. & van Atteveldt, W. (2026). *STAGElab: A Platform for Agent-Generated Experiments* [Software]. GitHub. https://github.com/Rptkiddle/wp5_pilot_platform
+> Kiddle, R. & van Atteveldt, W. (2026). *STAGElab: A Platform for Agentic-Generative Experiments* [Software]. GitHub. https://github.com/what-if-horizon/STAGElab
 
 A methods paper is forthcoming — this section will be updated with a full reference when available.
 
