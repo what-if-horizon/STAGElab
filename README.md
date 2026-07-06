@@ -4,7 +4,7 @@
 
 A single human participant interacts with multiple AI agents whose behaviour is coordinated to realise experimentally controlled treatment conditions.
 
-**Status**: Under active development for the [What-If](https://what-if-horizon.eu/) project by https://github.com/Rptkiddle and https://github.com/vanatteveldt
+**Status**: Under active development for the [What-If](https://what-if-horizon.eu/) project.
 
 ![Chatroom — participant view](assets/chatroom.png)
 
@@ -339,6 +339,8 @@ If you use this platform in your research, please cite it:
 > Kiddle, R. & van Atteveldt, W. (2026). *STAGElab: A Platform for Agentic-Generative Experiments* [Software]. GitHub. https://github.com/what-if-horizon/STAGElab
 
 A methods paper is forthcoming — this section will be updated with a full reference when available.
+
+Note: Additional contributors are joining this project. The author list will be updated as contributions are formalized.
 
 ### References
 
